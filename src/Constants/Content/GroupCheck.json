@@ -1,0 +1,320 @@
+{
+    "groupDetails": [
+      {
+        "displayName": "CM_TD",
+        "title": "Tech Data"
+      },
+      {
+        "displayName": "CM_TO",
+        "title": "Accenture"
+      },
+      {
+        "displayName": "CM_DN",
+        "title": "Diebold Nixdorf"
+      },
+      {
+        "displayName": "CM_CW",
+        "title": "Cushman and Wakefield"
+      },
+      {
+        "displayName": "CM_ES",
+        "title": "Eversource"
+      },
+      {
+        "displayName": "CM_CS",
+        "title": "Cisco"
+      },
+      {
+        "displayName": "CM_IF",
+        "title": "IFF"
+      },
+      {
+        "displayName": "CM_UHG",
+        "title": "UHG"
+      },
+      {
+        "displayName": "CM_EDF",
+        "title": "EDF"
+      },
+      {
+        "displayName": "CM_QBE",
+        "title": "QBE"
+      },
+      {
+        "displayName": "CM_OS",
+        "title": "Sensormatic"
+      },
+      {
+        "displayName": "CM_VU",
+        "title": "Vulcan"
+      },
+      {
+        "displayName": "CM_PH",
+        "title": "Phillips 66"
+      },
+      {
+        "displayName": "CM_MC",
+        "title": "McCormick"
+      },
+      {
+        "displayName": "CM_NW",
+        "title": "Nationwide"
+      },
+      {
+        "displayName": "CM_CIO",
+        "title": "Accenture - CIO CoE"
+      },
+      {
+        "displayName": "CM_MTA",
+        "title": "Manitoba Public Insurance"
+      },
+      {
+        "displayName": "CM_AIB",
+        "title": "Airbus"
+      },
+      {
+        "displayName": "CM_BMS",
+        "title": "BMS"
+      },
+      {
+        "displayName": "CM_LMARTIN",
+        "title": "Lockheed Martin"
+      },
+      {
+        "displayName": "CM_BT",
+        "title": "British Telecom"
+      },
+      {
+        "displayName": "CM_COR",
+        "title": "Corteva"
+      },
+      {
+        "displayName": "CM_FUTURESTATE",
+        "title": "Future State"
+      },
+      {
+        "displayName": "CM_EXELON",
+        "title": "Exelon"
+      },
+      {
+        "displayName": "CM_JANSSEN",
+        "title": "Jannsen"
+      },
+      {
+        "displayName": "CM_CITIBANK",
+        "title": "Citibank"
+      },
+      {
+        "displayName": "CM_WSP",
+        "title": "WSP"
+      },
+      {
+        "displayName": "CM_SBDECKER",
+        "title": "SBD"
+      },
+      {
+        "displayName": "CM_DUPONT",
+        "title": "DuPont"
+      },
+      {
+        "displayName": "CM_SCHWAB",
+        "title": "Schwab"
+      },
+      {
+        "displayName": "CM_CNR",
+        "title": "CNR (Canadian National Railway)"
+      },
+      {
+        "displayName": "CM_JTI",
+        "title": "JTI (Japan Tobacco Intl)"
+      },
+      {
+        "displayName": "CM_ACNFINANCE",
+        "title": "Accenture Finance"
+      },
+      {
+        "displayName": "CM_AGILENT",
+        "title": "Agilent"
+      },
+      {
+        "displayName": "CM_AES",
+        "title": "AES"
+      },
+      {
+        "displayName": "CM_ACNRTO",
+        "title": "ACNRTO"
+      },
+      {
+        "displayName": "CM_PEPSICO",
+        "title": "Pepsico"
+      },
+      {
+        "displayName": "CM_MASTERCARD",
+        "title": "Mastercard"
+      },
+      {
+        "displayName": "CM_RROYCE",
+        "title": "Rolls-Royce"
+      },
+      {
+        "displayName": "CM_EJONES",
+        "title": "EJONES"
+      },
+      {
+        "displayName": "CM_NESTLE",
+        "title": "Nestle"
+      },
+      {
+        "displayName": "CM_BRIGHTHORIZONS",
+        "title": "Bright Horizons"
+      },
+      {
+        "displayName": "CM_BPAQUILA",
+        "title": "BP Aquila"
+      },
+      {
+        "displayName": "CM_BNYMELLON",
+        "title": "Bank of New York Mellon"
+      },
+      {
+        "displayName": "CM_HSBC",
+        "title": "HSBC"
+      },
+      {
+        "displayName": "CM_VCBS",
+        "title": "Viacom CBS"
+      },
+      {
+        "displayName": "CM_WALLGREENS",
+        "title": "Walgreens"
+      },
+      {
+        "displayName": "CM_KUBOTA",
+        "title": "Kubota"
+      },
+      {
+        "displayName": "CM_OIGLASS",
+        "title": "Owens Illinois Glas"
+      },
+      {
+        "displayName": "CM_WALMARTAR",
+        "title": "Walmart Argentina"
+      },
+      {
+        "displayName": "CM_ECOPETROL",
+        "title": "Ecopetrol"
+      },
+      {
+        "displayName": "CM_EQUINIX",
+        "title": "Equinix"
+      },
+      {
+        "displayName": "CM_ASTELLAS",
+        "title": "Astellas"
+      },
+      {
+        "displayName": "CM_MCDONALDS",
+        "title": "McDonald's"
+      },
+      {
+        "displayName": "CM_CEMEX",
+        "title": "Cemex"
+      },
+      {
+        "displayName": "CM_ABINBEV",
+        "title": "AB InBev"
+      },
+      {
+        "displayName": "CM_ULTA",
+        "title": "ULTA"
+      },
+      {
+        "displayName": "CM_TRINSEO",
+        "title": "TRINSEO"
+      },
+      {
+        "displayName": "CM_TAKEDA",
+        "title": "Takeda"
+      },
+      {
+        "displayName": "CM_METROLINX",
+        "title": "Metrolinx"
+      },
+      {
+        "displayName": "CM_TELSTRA",
+        "title": "Telstra"
+      },
+      {
+        "displayName": "CM_RIOTINTO",
+        "title": "Rio Tinto"
+      },
+      {
+        "displayName": "CM_ASML",
+        "title": "ASML"
+      },
+      {
+        "displayName": "CM_NUTRIEN",
+        "title": "Nutrien"
+      },
+      {
+        "displayName": "CM_TEMASEK",
+        "title": "TEMASEK"
+      },
+      {
+        "displayName": "CM_PHILIPMORRIS",
+        "title": "PHILIPMORRIS"
+      },
+      {
+        "displayName": "CM_ELECTROLUX",
+        "title": "ELECTROLUX"
+      },
+      {
+        "displayName": "CM_MCMORAN",
+        "title": "McMoRan"
+      },
+      {
+        "displayName": "CM_UNILEVER",
+        "title": "Unilever"
+      },
+      {
+        "displayName": "CM_TENAGA",
+        "title": "Tenaga Nasional"
+      },
+      {
+        "displayName": "CM_EYECARE",
+        "title": "EyeCare Partners"
+      },
+      {
+        "displayName": "CM_NATURAECO",
+        "title": "Natura & Co"
+      },
+      {
+        "displayName": "CM_SEEK",
+        "title": "SEEK"
+      },
+      {
+        "displayName": "CM_BME",
+        "title": "BME"
+      },
+      {
+        "displayName": "CM_CRH",
+        "title": "CRH"
+      },
+      {
+        "displayName": "CM_JCONTROLS",
+        "title": "JCONTROLS"
+      },
+      {
+        "displayName": "CM_EVBOX",
+        "title": "EVBox"
+      },
+      {
+        "displayName": "CM_RUSAGRO",
+        "title": "RUSAGRO"
+      },
+      {
+        "displayName": "CM_BHE",
+        "title": "BHE"
+      }
+    ]
+  }

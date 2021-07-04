@@ -1,0 +1,82 @@
+body {
+    height: 100vh;
+    max-height: 100vh;
+    color: black;
+  }
+.full-height {
+    height: 100vh;
+  }
+.login-box {
+    width: 500px;
+    padding: 2rem 1rem;
+    background: #fff;
+    /* background: rgba(11,11,11,0.41); */
+    border-radius: 10px;
+}
+.cursor-pointer {
+    cursor: pointer;
+  }
+
+.ms-fontSize-36{
+    font-size: 36px;
+}
+.ms-fontSize-18{
+    font-size: 18px;
+}
+.pdL1p5 {
+    padding-left: 1.5vw !important;
+  }
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 400px;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .container {
+    padding: 2px 16px;
+  }
+  .nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #3c0e4c;
+  }
+  
+  .nav li {
+    float: left;
+  }
+  
+  .nav li div {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .nav li div:hover {
+    background-color: #240637;
+    cursor: pointer;
+  }
+  
+  .btnWidth {
+    width: 16.9vw;
+    height: 48px;
+  }
+  .btnWidth .ms-ContextualMenu-link {
+    height: 48px;
+    padding-left: 10px;
+    font-size: 12px !important;
+    /* background: #e8ebed; */
+  }
+  .ms-ContextualMenu-link:hover {
+    background: #e8ebed;
+  }
+  .ms-fontSize-14{
+      font-size: 14px;
+  }
