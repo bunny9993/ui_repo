@@ -2,6 +2,9 @@ import React,{useState} from 'react'
 import { mergeStyles,TextField,PrimaryButton } from '@fluentui/react';
 import Logo from '../../Assets/las.png';
 import { useHistory } from 'react-router';
+import { useSelector,useDispatch } from 'react-redux';
+import { loginCheck } from '../../Redux/Services/Login.services';
+import { useEffect } from 'react';
 
 const classes = {
     bgLogo: mergeStyles({
@@ -54,14 +57,29 @@ const classes = {
 const Login = () => {
     const[userEmail,setUserEmail]=useState('')
     const[userPassword,setUserPassword]=useState('')
-    const history=useHistory()
+    const { UserData } = useSelector((state) => {
+        return {
+            UserData: state.LoginCheckReducer.userData,
+        }
+    })
+    const dispatch = useDispatch();
+    const history=useHistory();
     const onLogin=()=>{
         console.log(userEmail,userPassword)
+        dispatch(loginCheck({userEmail:userEmail,userPassword:userPassword}))
     }
     const onRef=()=>{
         localStorage.setItem('userType',"Admin")
         history.push('/home')
     }
+    useEffect(()=>{
+        if(UserData && UserData!=='unauthorized'){
+            localStorage.setItem('user_id',UserData.user_id)
+            localStorage.setItem('user_email',UserData.user_email)
+            localStorage.setItem('userType',UserData.user_type)
+            history.push('/home')
+        }
+    },[UserData,history])
     return (
         <>
             <div className={`ms-Grid full-height  ${classes.bgLogo}`} dir="ltr">

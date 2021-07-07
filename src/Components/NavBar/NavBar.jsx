@@ -1,12 +1,16 @@
 import React from 'react'
 import { useHistory } from 'react-router';
+import {useDispatch} from 'react-redux';
+import {resetLoginCheck} from '../../Redux/Services/Login.services'
 
 function Navbar(props) {
   const history  = useHistory();
+  const dispatch=useDispatch();
   const logout = () => {
     // props.logout()
     // logoutServiceApi({});
     // props.logout()
+    dispatch(resetLoginCheck())
     localStorage.clear('userType')
     history.push('/');
   }
