@@ -3,7 +3,7 @@ import AdminLaning from '../../Components/Adminlanding/Adminlaning'
 import UserLanding from '../../Components/Userlanding/Userlanding'
 
 const Home=()=>{
-    const userType=localStorage.getItem('userType')
+    const userType=sessionStorage.getItem('userType')
   return(
       <>
         {userType==='Admin'?<AdminLaning/>:<UserLanding/>}

@@ -5,20 +5,26 @@ import { DefaultTheme } from './Themes/DefaultTheme';
 import './App.css';
 import NavBar from './Components/NavBar/NavBar';
 import { useLocation } from 'react-router-dom';
+import {useSelector} from 'react-redux'
 
 loadTheme(DefaultTheme);
 function App() {
   const[navBarFlag,setNavBarFlag]=useState(false)
-  const userType=localStorage.getItem('userType')
+  const userType=sessionStorage.getItem('userType')
   const location = useLocation();
+  const { UserData } = useSelector((state) => {
+    return {
+        UserData: state.LoginCheckReducer.userData,
+    }
+})
   
   useEffect(()=>{
-    if(userType){
+    if(userType &&UserData){
       setNavBarFlag(true)
     }else{
       setNavBarFlag(false)
     }
-  },[userType,location])
+  },[userType,location,UserData])
   return (
     <React.Fragment>
       {navBarFlag&&<NavBar/>}

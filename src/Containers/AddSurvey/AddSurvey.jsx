@@ -106,6 +106,7 @@ const AddSurvey = () => {
                     </span>
                 </div>
                 <div className={`${classes.margin} `}>
+                <TextField placeholder={'Survey Name'} label={'Survey Name'} className={classes.input} />
                     <TextField placeholder={'Survey Version'} label={'Survey Version'} className={classes.input} />
                 </div>
                 <div>{questionList.length > 0 && questionList.map((i) =>
