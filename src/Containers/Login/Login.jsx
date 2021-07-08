@@ -69,14 +69,14 @@ const Login = () => {
         dispatch(loginCheck({userEmail:userEmail,userPassword:userPassword}))
     }
     const onRef=()=>{
-        localStorage.setItem('userType',"Admin")
+        sessionStorage.setItem('userType',"Admin")
         history.push('/home')
     }
     useEffect(()=>{
         if(UserData && UserData!=='unauthorized'){
-            localStorage.setItem('user_id',UserData.user_id)
-            localStorage.setItem('user_email',UserData.user_email)
-            localStorage.setItem('userType',UserData.user_type)
+            sessionStorage.setItem('user_id',UserData.user_id)
+            sessionStorage.setItem('user_email',UserData.user_email)
+            sessionStorage.setItem('userType',UserData.user_type)
             history.push('/home')
         }
     },[UserData,history])

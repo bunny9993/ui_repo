@@ -58,7 +58,7 @@ const classes = {
 const UserFrom = () => {
     const history=useHistory();
     const[selectedId,setSelectedId]=useState(null)
-    const list=[{id:1,Name:'version 1'},{id:2,Name:'version 2'},{id:3,Name:'version 3'}]
+    const list=[{id:"version 1'",Name:'version 1'},{id:'version 2',Name:'version 2'},{id:'version 3',Name:'version 3'}]
     return (
         <>
             <div className={` ms-Grid ms-fontSize-12 ${classes.header} ${classes.navFlex} ${classes.pdL0}`}>
@@ -68,6 +68,20 @@ const UserFrom = () => {
                 </div>
                 <div className={`${classes.margin} `}>
                 <TextField placeholder={'UserEmail'} label={'UserEmail'}  className={classes.input}/>
+                </div>
+                <div className={`${classes.margin} `}>
+                <Dropdown
+                            className={classes.select}
+                            placeholder={'Select an option'}
+                            onChange={(_, option) => setSelectedId(option.key)}
+                            options={list && buildOptions(list, 'id', 'Name')}
+                            //multiSelect
+                            selectedKey={selectedId}
+                            styles={{
+                                dropdownOptionText: { paddingTop: '4px' }
+                            }}
+                            label={'Survey Name'}
+                        />
                 </div>
                 <div className={`${classes.margin} `}>
                 <Dropdown
