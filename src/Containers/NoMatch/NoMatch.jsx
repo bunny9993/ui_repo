@@ -1,7 +1,5 @@
 import React from 'react';
 import { mergeStyles, PrimaryButton } from '@fluentui/react';
-// import CMIcon from '../../Components/CMIcon/CMIcon';
-import { content } from '../../Constants/Content/Content.json'
 import { withRouter } from 'react-router';
 
 const classes = {
@@ -26,13 +24,13 @@ function NoMatch(props) {
                     <CMIcon iconName={'RemoveLink'} />
                 </div> */}
                 <div className={`ms-sm12 ms-md12 ms-lg12 ms-xl12 ms-fontSize-14 ms-fontWeight-semibold pdB2`}>
-                    {content.pageNotFound_label}
+                    {'404 - Page not found'}
                 </div>
                 <div className={`ms-sm12 ms-md12 ms-lg12 ms-xl12 ms-fontSize-14 pdB4`}>
-                    {content.pageNotFoundDesc_label}
+                    {'The page you were looking for was moved, or does not exist.'}
                 </div>
                 <div>
-                    <PrimaryButton onClick={navigateToHome}> {content.goBack_label}</PrimaryButton>
+                    <PrimaryButton onClick={navigateToHome}> {'Go Back'}</PrimaryButton>
                 </div>
             </div>
         </div>

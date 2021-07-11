@@ -11,8 +11,8 @@ const initialState = {
     LoginError: false,
     LoginSuccess: false,
     userData: null,
-    error: null,
-    sessionError: null,
+    LoginerrorData: null,
+    sessionErrorLogin: null,
 };
 
 export function LoginCheckReducer(state = initialState, action) {
@@ -32,13 +32,13 @@ export function LoginCheckReducer(state = initialState, action) {
             return {
                 ...state,
                 LoginPending: false,
-                error: action.error,
+                LoginerrorData: action.error,
             };
         case SESSION_EXPIRED_ERROR:
             return {
                 ...state,
                 LoginPending: false,
-                sessionError: action.sessionError,
+                sessionErrorLogin: action.sessionError,
             };
         default:
             return state;

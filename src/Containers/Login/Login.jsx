@@ -5,6 +5,7 @@ import { useHistory } from 'react-router';
 import { useSelector,useDispatch } from 'react-redux';
 import { loginCheck } from '../../Redux/Services/Login.services';
 import { useEffect } from 'react';
+import { Spinner, SpinnerSize } from '@fluentui/react'
 
 const classes = {
     bgLogo: mergeStyles({
@@ -57,35 +58,39 @@ const classes = {
 const Login = () => {
     const[userEmail,setUserEmail]=useState('')
     const[userPassword,setUserPassword]=useState('')
-    const { UserData } = useSelector((state) => {
+    const [loginClickFlag,setLoginClickFlag]=useState(true)
+    const { UserData,LoginError } = useSelector((state) => {
         return {
             UserData: state.LoginCheckReducer.userData,
+            LoginError: state.LoginCheckReducer.sessionErrorLogin
         }
     })
     const dispatch = useDispatch();
     const history=useHistory();
     const onLogin=()=>{
-        console.log(userEmail,userPassword)
+        setLoginClickFlag(false)
         dispatch(loginCheck({userEmail:userEmail,userPassword:userPassword}))
     }
     const onRef=()=>{
-        sessionStorage.setItem('userType',"Admin")
+        sessionStorage.setItem('userType',"Anonymous")
         history.push('/home')
     }
     useEffect(()=>{
-        if(UserData && UserData!=='unauthorized'){
+        if(UserData && UserData!=='Un Authorized'){
             sessionStorage.setItem('user_id',UserData.user_id)
             sessionStorage.setItem('user_email',UserData.user_email)
             sessionStorage.setItem('userType',UserData.user_type)
             history.push('/home')
+        }else{
+            setLoginClickFlag(true)
         }
-    },[UserData,history])
+    },[UserData,history,LoginError])
     return (
         <>
-            <div className={`ms-Grid full-height  ${classes.bgLogo}`} dir="ltr">
+            {loginClickFlag?<div className={`ms-Grid full-height  ${classes.bgLogo}`} dir="ltr">
                 <div className={`ms-Grid-row ${classes.main}`}>
                     <div className={`ms-Grid-col ms-sm12 ms-md12 ms-lg12 ms-x12 ${classes.headerText}`}>
-                        Oracle Survey
+                        Workshop Survey
                     </div>
                 </div>
                 <div className={`ms-Grid-row ${classes.login}`}>
@@ -98,7 +103,7 @@ const Login = () => {
                         <div className={`cursor-pointer ${classes.anonymous}`} onClick={onRef}>Continue as anonymous user</div>
                     </div>
                 </div>
-            </div>
+            </div>:<div className="spinCenter"><Spinner size={SpinnerSize.large} label={"Loading ..."} /></div>}
         </>
     )
 }

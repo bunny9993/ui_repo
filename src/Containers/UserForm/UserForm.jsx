@@ -1,7 +1,9 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { mergeStyles,TextField,Dropdown,PrimaryButton } from '@fluentui/react'
 import { buildOptions } from '../../Helpers/Common'
 import { useHistory } from 'react-router'
+import axios from 'axios'
+import Api from '../../Helpers/Api'
 
 const classes = {
     header: mergeStyles({
@@ -57,30 +59,71 @@ const classes = {
 
 const UserFrom = () => {
     const history=useHistory();
-    const[selectedId,setSelectedId]=useState(null)
-    const list=[{id:"version 1'",Name:'version 1'},{id:'version 2',Name:'version 2'},{id:'version 3',Name:'version 3'}]
+    const[selectedId,setSelectedId]=useState(null);
+    const [list,setList]=useState([]);
+    const [selectSurvey,setSelectSurvey]=useState(null);
+    const [surveyList,setSurveyList]=useState([])
+    const api = new Api();
+    const urlPrefix = api.getUrlPrefix();
+    const[userName,setUserName]=useState(null);
+    const[userEmail,setUserEmail]=useState(null);
+    const [status,setStatus]=useState(null);
+   //const list=[{id:"version 1'",Name:'version 1'},{id:'version 2',Name:'version 2'},{id:'version 3',Name:'version 3'}]
+    useEffect(()=>{
+        const url=urlPrefix+`fetchSurvey/${sessionStorage.getItem('user_id')}`
+        axios.get(url).then(res=>setSurveyList(res.data.resultObj)).catch(err=>console.log(err))
+    },[urlPrefix])
+    useEffect(()=>{
+        if(selectSurvey){
+        const url=urlPrefix+`fetchSurveyVersions/${sessionStorage.getItem('user_id')}/surveyName/${selectSurvey}`
+        axios.get(url).then(res=>setList(res.data.resultObj)).catch(err=>console.log(err))
+        }
+    },[selectSurvey,urlPrefix])
+
+    const onSubmit=()=>{
+        let payLoad={userName:userName,userEmail:userEmail,surveyId:selectedId,userId:sessionStorage.getItem('user_id')}
+        if(payLoad.userName===null||payLoad.userEmail===null||payLoad.surveyId===null){
+            alert('Please fill all fields')
+        }else{
+            const url=urlPrefix+`addUser`
+            axios.post(url,payLoad).then(res=>setStatus(res.data.resultObj)).catch(err=>console.log(err)) 
+        }
+    }
+    useEffect(()=>{
+        if(status){
+            if(status==='User Email already exisits'){
+                alert('User Email already exisits')
+                setStatus(null)
+            }if(status==='Successfuly Updated'){
+                alert('User created Successfully')
+                setStatus(null)
+                history.push('/home')
+            }
+            setStatus(null)
+        }
+    },[status,history])
     return (
         <>
             <div className={` ms-Grid ms-fontSize-12 ${classes.header} ${classes.navFlex} ${classes.pdL0}`}>
             <div className={`${classes.margin} ${classes.pdB10}`}>Create User</div>
                 <div className={`${classes.margin} `}>
-                <TextField placeholder={'UserName'} label={'UserName'}  className={classes.input}/>
+                <TextField placeholder={'UserName'} label={'UserName'}  className={classes.input} required onChange={(_,e)=>setUserName(e)}/>
                 </div>
                 <div className={`${classes.margin} `}>
-                <TextField placeholder={'UserEmail'} label={'UserEmail'}  className={classes.input}/>
+                <TextField placeholder={'UserEmail'} label={'UserEmail'}  className={classes.input} required onChange={(_,e)=>setUserEmail(e)}/>
                 </div>
                 <div className={`${classes.margin} `}>
                 <Dropdown
                             className={classes.select}
                             placeholder={'Select an option'}
-                            onChange={(_, option) => setSelectedId(option.key)}
-                            options={list && buildOptions(list, 'id', 'Name')}
-                            //multiSelect
-                            selectedKey={selectedId}
+                            onChange={(_, option) => setSelectSurvey(option.key)}
+                            options={surveyList && buildOptions(surveyList, 'survey_name', 'survey_name')}
+                            selectedKey={selectSurvey}
                             styles={{
                                 dropdownOptionText: { paddingTop: '4px' }
                             }}
                             label={'Survey Name'}
+                            required
                         />
                 </div>
                 <div className={`${classes.margin} `}>
@@ -88,17 +131,18 @@ const UserFrom = () => {
                             className={classes.select}
                             placeholder={'Select an option'}
                             onChange={(_, option) => setSelectedId(option.key)}
-                            options={list && buildOptions(list, 'id', 'Name')}
+                            options={list && buildOptions(list, 'survey_id', 'survey_version')}
                             //multiSelect
                             selectedKey={selectedId}
                             styles={{
                                 dropdownOptionText: { paddingTop: '4px' }
                             }}
                             label={'Survey Versions'}
+                            required
                         />
                 </div>
                 <div className={`${classes.margin}  ${classes.pdB10}`}>
-                        <PrimaryButton className={classes.select} onClick={()=>{history.push('/home')}}>Submit</PrimaryButton>
+                        <PrimaryButton className={classes.select} onClick={onSubmit}>Submit</PrimaryButton>
                 </div>
             </div>
         </>

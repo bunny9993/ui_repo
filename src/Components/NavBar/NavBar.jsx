@@ -11,7 +11,9 @@ function Navbar(props) {
     // logoutServiceApi({});
     // props.logout()
     dispatch(resetLoginCheck())
-    localStorage.clear('userType')
+    sessionStorage.clear('userType')
+    sessionStorage.clear('user_id')
+    sessionStorage.clear('user_email')
     history.push('/');
   }
   const goToHome = () => {
@@ -22,7 +24,7 @@ function Navbar(props) {
   return(<>
   <div className='nav'>
     <ul>
-  <li><div onClick={goToHome}>Oracle Survey</div></li>
+  <li><div onClick={goToHome}>Workshop Survey</div></li>
   <li style={{float:'right',paddingRight:'10px'}}><div onClick={logout}>Signout</div></li>
 </ul>
 </div>

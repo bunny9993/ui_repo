@@ -35,7 +35,7 @@ const AdminLaning = () => {
     //const Data = [{ version: "1", CompletionCount: 6 }, { version: "1", CompletionCount: 7 }, { version: "1", CompletionCount: 8 }, { version: "1", CompletionCount: 1 }, { version: "1", CompletionCount: 1 }, { version: "1", CompletionCount: 1 }, { version: "1", CompletionCount: 1 }, { version: "1", CompletionCount: 1 }, { version: "1", CompletionCount: 1 }, { version: "1", CompletionCount: 1 }, { version: "1", CompletionCount: 1 }]
     return (
         <div>
-            <UserWelcome header={"Welcome Admin"} subHeader={"Alfred"} />
+            <UserWelcome header={`Welcome ${sessionStorage.getItem('userType')}`} subHeader={sessionStorage.getItem('user_email')} />
             <div className={`${classes.cardHead}`}>Survey Dashboard <span style={{ float: 'right', paddingRight: '10px' }}><div><PrimaryButton onClick={()=>{history.push('/createuser')}}>Add User</PrimaryButton><span style={{ paddingLeft: '10px' }}><PrimaryButton onClick={()=>{history.push('/createsurvey')}}>Add Survey</PrimaryButton></span></div></span></div>
             <div className={`flex ms-Grid-row`} style={{ display: 'flex', flexFlow: 'row wrap' }}>
                 {mainData && mainData.map((i, index) =>
@@ -44,7 +44,7 @@ const AdminLaning = () => {
                             <div className="container">
                                 <h4><b>Survey Name: {i.survey_name}</b></h4>
                                 <p>Version: {i.survey_version}</p>
-                                <p>No.of Persons: {i.draft_count}</p>
+                                <p>No.of Persons saved as draft: {i.draft_count}</p>
                                 <p>No.of Persons Completed Survey: {i.completed_count}</p>
                             </div>
                         </div>

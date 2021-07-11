@@ -19,7 +19,7 @@ function App() {
 })
   
   useEffect(()=>{
-    if(userType &&UserData){
+    if(userType){
       setNavBarFlag(true)
     }else{
       setNavBarFlag(false)

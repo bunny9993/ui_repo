@@ -80,3 +80,9 @@ body {
   .ms-fontSize-14{
       font-size: 14px;
   }
+  .spinCenter {
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    align-items: center;
+  }

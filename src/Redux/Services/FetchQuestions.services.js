@@ -1,40 +1,45 @@
 import {
-    loginCheckSuccess,
-    loginCheckError,
-    loginCheckPending,
+    fetchQuestionsSuccess,
+    fetchQuestionsError,
+    fetchQuestionsPending,
     sessionExpiredError,
-} from '../Actions/LoginCheck.actions';
+} from '../Actions/FetchQuestions.actions';
 import Api from '../../Helpers/Api';
 import axios from 'axios';
 
-export function resetLoginCheck() {
+export function resetFetchQuestions() {
     return (dispatch) => {
-        dispatch(loginCheckSuccess(null));
+        dispatch(fetchQuestionsSuccess(null));
     };
 }
-export function loginCheck(payload) {
+export function fetchQuestions(userId,userType) {
     const api = new Api();
     const urlPrefix = api.getUrlPrefix();
-    const url = urlPrefix + 'users';
-    // const url ='http://localhost:3006/api/users'
+    var url=urlPrefix;
+    if(userType==='Anonymous'){
+        url=url + `fetchSurveyRandomUser`
+    }else{
+        url = url + `fetchUserQuestions/${userId}`;
+    } 
     return (dispatch) => {
-        dispatch(loginCheckPending());
+        dispatch(fetchQuestionsPending());
         axios
-            .post(url, payload, {
+            .get(url, {
             })
             .then((res) => {
                 if (res.error) {
                     throw res.error;
                 }
+                console.log(res.data.resultObj)
                 const dataObj = res.data.resultObj;
-                dispatch(loginCheckSuccess(dataObj));
+                dispatch(fetchQuestionsSuccess(dataObj));
                 return dataObj;
             })
             .catch((error) => {
                 if (error.response && error.response.status === 403) {
                     dispatch(sessionExpiredError(error));
                 } else {
-                    dispatch(loginCheckError(error.response.data.resultObj));
+                    dispatch(fetchQuestionsError(error));
                 }
             });
     };
