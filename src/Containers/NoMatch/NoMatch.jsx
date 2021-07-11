@@ -20,9 +20,6 @@ function NoMatch(props) {
     return (
         <div className={`ms-Grid color-shuttle-gray text-align-center paddingAroundPage ${classes.center}`}>
             <div className={`ms-Grid-row`}>
-                {/* <div className={`ms-sm12 ms-md12 ms-lg12 ms-xl12 iconStyles`}>
-                    <CMIcon iconName={'RemoveLink'} />
-                </div> */}
                 <div className={`ms-sm12 ms-md12 ms-lg12 ms-xl12 ms-fontSize-14 ms-fontWeight-semibold pdB2`}>
                     {'404 - Page not found'}
                 </div>
